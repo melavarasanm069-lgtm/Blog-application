@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyBlog - Share Your Stories</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" onclick="showPage('home'); return false;">MyBlog</a>
+    <nav>
+      <a href="#" onclick="showPage('home'); return false;">Home</a>
+      <a href="#" onclick="showPage('login'); return false;">Login</a>
+      <a href="#" onclick="showPage('register'); return false;">Register</a>
+      <a href="#" onclick="showPage('dashboard'); return false;">Dashboard</a>
+      <a class="nav-button" href="#" onclick="showPage('create'); return false;">Write a blog</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="page">
+      <div class="hero">
+        <p class="eyebrow">A SPACE FOR YOUR IDEAS</p>
+        <h1>Stories worth <span>sharing.</span></h1>
+        <p>Write, discover and share ideas with the MyBlog community.</p>
+        <button onclick="showPage('create')">Start writing</button>
+      </div>
+      <div class="section-heading">
+        <div><p class="eyebrow">FRESH FROM THE COMMUNITY</p><h2>Latest stories</h2></div>
+      </div>
+      <div id="blogList" class="blog-grid"></div>
+    </section>
+
+    <section id="login" class="page hidden">
+      <div class="form-box">
+        <p class="eyebrow">WELCOME BACK</p>
+        <h1>Login</h1>
+        <p class="muted">Sign in to manage your stories.</p>
+        <form id="loginForm">
+          <label for="loginEmail">Email address</label>
+          <input type="email" id="loginEmail" placeholder="you@example.com" required>
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" placeholder="Your password" required>
+          <button class="full-button" type="submit">Login</button>
+        </form>
+        <p class="form-note">New here? <a href="#" onclick="showPage('register'); return false;">Create an account</a></p>
+      </div>
+    </section>
+
+    <section id="register" class="page hidden">
+      <div class="form-box">
+        <p class="eyebrow">JOIN THE COMMUNITY</p>
+        <h1>Create account</h1>
+        <p class="muted">Set up a demo account to try the app.</p>
+        <form id="registerForm">
+          <label for="regName">Full name</label>
+          <input type="text" id="regName" placeholder="Your name" required>
+          <label for="regEmail">Email address</label>
+          <input type="email" id="regEmail" placeholder="you@example.com" required>
+          <label for="regPassword">Password</label>
+          <input type="password" id="regPassword" minlength="6" placeholder="At least 6 characters" required>
+          <button class="full-button" type="submit">Create account</button>
+        </form>
+        <p class="form-note">Already registered? <a href="#" onclick="showPage('login'); return false;">Login</a></p>
+      </div>
+    </section>
+
+    <section id="dashboard" class="page hidden">
+      <div class="section-heading">
+        <div><p class="eyebrow">YOUR WRITING SPACE</p><h1>Dashboard</h1><p id="welcomeUser" class="muted"></p></div>
+        <button onclick="showPage('create')">+ New blog</button>
+      </div>
+      <div id="myBlogs" class="blog-grid"></div>
+      <button class="secondary-button" onclick="logout()">Logout</button>
+    </section>
+
+    <section id="create" class="page hidden">
+      <div class="form-box wide-form">
+        <p class="eyebrow">PUBLISH SOMETHING NEW</p>
+        <h1>Create a blog</h1>
+        <form id="blogForm">
+          <label for="blogTitle">Blog title</label>
+          <input type="text" id="blogTitle" maxlength="100" placeholder="Give your story a title" required>
+          <label for="blogCategory">Category</label>
+          <input type="text" id="blogCategory" maxlength="40" placeholder="Technology, Education, Lifestyle..." required>
+          <label for="blogContent">Your story</label>
+          <textarea id="blogContent" rows="9" placeholder="Start writing here..." required></textarea>
+          <button class="full-button" type="submit">Publish blog</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer><p>© 2026 MyBlog · Made for sharing ideas.</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>
